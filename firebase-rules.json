@@ -1,0 +1,23 @@
+{
+    "rules": {
+      "communities": {
+        ".read": "auth != null",
+        ".write": "auth != null"
+      },
+      "users": {
+        "$userId": {
+          ".read": "$userId === auth.uid",
+          ".write": "$userId === auth.uid",
+          "subscriptions": {
+            ".read": "$userId === auth.uid",
+            ".write": "$userId === auth.uid"
+          },
+          "tokens": {
+            ".read": "$userId === auth.uid",
+            ".write": "$userId === auth.uid"
+          }
+        }
+      }
+    }
+  }
+  
